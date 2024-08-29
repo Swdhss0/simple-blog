@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import utilStyle from '../styles/utils.module.css'
-import Link from 'next/link';
+import Link, {siteTitle} from 'next/link';
 import Layout from '../components/Layout';
 import Article from '../components/article.jsx'
 import {getPostDatas} from '../lib/post'
@@ -21,7 +21,10 @@ export async function getStaticProps() {
 export default function Home({allPostDatas}) {
 
   return (
-    <Layout>
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <section className={utilStyle.headingMd}>
         <p>ポートフォリオ制作中のフリーター</p>
       </section>
