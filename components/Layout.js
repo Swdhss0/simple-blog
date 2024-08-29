@@ -25,7 +25,9 @@ function Layout({children, home}) {
 
       <main>{children}</main>
 
-      {home ? null : (
+      {home ? (
+        <></>
+      ) : (
         <div>
           <Link href='/'>←ホームへ戻る</Link>
         </div>

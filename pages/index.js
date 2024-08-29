@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import utilStyle from '../styles/utils.module.css'
-import Link, {siteTitle} from 'next/link';
+import Link
+ from 'next/link';
 import Layout from '../components/Layout';
 import Article from '../components/article.jsx'
 import {getPostDatas} from '../lib/post'
@@ -23,7 +24,7 @@ export default function Home({allPostDatas}) {
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>HOME</title>
       </Head>
       <section className={utilStyle.headingMd}>
         <p>ポートフォリオ制作中のフリーター</p>
@@ -34,7 +35,7 @@ export default function Home({allPostDatas}) {
 
         <div className={styles.grid}>
           {allPostDatas.map((post) => (
-            <Article post={post}/>
+            <Article post={post} key={post.id}/>
           ))}
         </div>
       </section>

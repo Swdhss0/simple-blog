@@ -3,14 +3,17 @@ import {getAllPostIds, getPostData} from '../../lib/post';
 import utilStyle from '../../styles/utils.module.css'
 import Link from 'next/link';
 import Head from 'next/head';
+import Date from "../../components/date";
 
 export async function getStaticPaths() {
-  const paths = await getAllPostIds();
+  const paths = getAllPostIds();
+
   return {
     paths,
     fallback: false,
-  }
+  };
 }
+
 
 export async function getStaticProps({params}){{
 
@@ -34,7 +37,7 @@ function post({postData}) {
       </Head>
       <article>
         <h1 className={utilStyle.headingXl}>{postData.title}</h1>
-        <div className={utilStyle.lightText}>{postData.date}</div>
+        <div className={utilStyle.lightText}><Date dateString={postData.date} /></div>
         <div dangerouslySetInnerHTML={{ __html: postData.blogContentHTML }}/>
       </article>
 
